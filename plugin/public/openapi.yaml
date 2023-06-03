@@ -18,6 +18,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/getBalanceResponse'
+  /api/get-transaction:
+    get:
+      operationId: getTransaction
+      summary: Get a transaction from the Sui Blockchain
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSuiBlockchainTransaction'
   /api/todos:
     get:
       operationId: getTodos
@@ -90,3 +101,14 @@ components:
         balance:
           type: string
           description: The coin balance of TODOs.
+    getSuiBlockchainTransaction:
+      type: object
+      required:
+      - transaction
+      properties:
+        transaction:
+          type: string
+          items:
+            type: string
+          description: The transaction hash.
+          required: true

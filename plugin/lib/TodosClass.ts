@@ -1,10 +1,16 @@
-import { JsonRpcProvider, devnetConnection, mainnetConnection } from '@mysten/sui.js';
+import { JsonRpcProvider, 
+  devnetConnection, getTransaction, mainnetConnection,
+  SuiTransactionBlockResponse } from '@mysten/sui.js';
 
 
 interface Todo {
   [key: string]: string
 }
 type TodosType = Todo[]
+
+interface TxDigest {
+  [key: string]: string
+}
 
 class TodosClass {
   todos: TodosType = []
@@ -28,10 +34,26 @@ class TodosClass {
     //   // '0x65b0553a591d7b13376e03a408e112c706dc0909a79080c810b93b06f922c458::usdc::USDC',
     //   '0x2::sui::SUI',
   });
-
+    
   console.log(JSON.stringify(coinBalance));
   console.log("USDC COINS: " + coinBalance.totalBalance);
   return coinBalance.totalBalance;
+  }
+
+  async getTransaction():Promise<SuiTransactionBlockResponse> {
+    const provider = new JsonRpcProvider(mainnetConnection);
+    const txn = await provider.getTransactionBlock({
+      digest: '5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw',
+      // only fetch the effects field
+        options: {
+            showEffects: true,
+            showInput: false,
+            showEvents: false,
+            showObjectChanges: false,
+            showBalanceChanges: false
+        }
+    }); 
+    return txn;
   }
 }
 
