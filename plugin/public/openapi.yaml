@@ -1,11 +1,23 @@
 openapi: 3.0.1
 info:
-  title: TODO Plugin
-  description: A plugin that allows the user to create and manage a TODO list using ChatGPT.
+  title: A Plugin API for Sui data
+  description: A retrieval API for querying and filtering documents based on natural language queries and metadata.
   version: 'v1'
 servers:
   - url: http://localhost:3000
 paths:
+  /api/get-balance:
+    get:
+      summary: getBalance
+      description: Returns the amount of coin on Sui
+      operationId: query_balance
+      responses:
+        "200":
+          description: Succesful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getBalanceResponse'
   /api/todos:
     get:
       operationId: getTodos
@@ -71,3 +83,10 @@ components:
           items:
             type: string
           description: The list of todos.
+    geBalanceResponse:
+      title: GetBalanceResponse
+      type: object
+      properties:
+        balance:
+          type: string
+          description: The coin balance of TODOs.
