@@ -1,11 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { Todos } from "../../../lib/TodosClass";
 
-export async function GET() {
-  console.log("GETTING TRANSACTION: " + Todos.getTransaction());
+export async function GET(req: NextRequest) {
+  // const body = await req.json()
+  // console.log("GETTING TRANSACTION: " + body);
+  const digest =  req.nextUrl.searchParams.get("digest");
+  console.log("DIGEST: " + digest);
   return NextResponse.json(
     {
-      balance: await Todos.getTransaction(),
+      balance: await Todos.getTransaction("5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw"),
     },
     {
       status: 200,

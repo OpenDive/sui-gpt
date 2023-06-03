@@ -21,7 +21,7 @@ paths:
   /api/get-transaction:
     get:
       operationId: getTransaction
-      summary: Get a transaction from the Sui Blockchain
+      summary: Accepts Sui transaction digest. Get a transaction from the Sui Blockchain of the given digest.
       responses:
         "200":
           description: OK

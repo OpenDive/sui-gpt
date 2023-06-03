@@ -40,10 +40,10 @@ class TodosClass {
   return coinBalance.totalBalance;
   }
 
-  async getTransaction():Promise<SuiTransactionBlockResponse> {
+  async getTransaction(digest: string):Promise<SuiTransactionBlockResponse> {
     const provider = new JsonRpcProvider(mainnetConnection);
     const txn = await provider.getTransactionBlock({
-      digest: '5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw',
+      digest: digest,
       // only fetch the effects field
         options: {
             showEffects: true,
