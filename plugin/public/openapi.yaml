@@ -1,73 +1,32 @@
 openapi: 3.0.1
 info:
-  title: TODO Plugin
-  description: A plugin that allows the user to create and manage a TODO list using ChatGPT.
+  title: SuiGPT
+  description: Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions using ChatGPT.
   version: 'v1'
 servers:
-  - url: http://localhost:3000
+  - url: http://0.0.0.0:3000
 paths:
-  /api/todos:
+  /api/transaction:
     get:
-      operationId: getTodos
-      summary: Get the list of todos
+      operationId: getTransaction
+      summary: Get a transaction from the Sui Blockchain
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getTodosResponse'
-  /api/create-todo:
-    post:
-      operationId: addTodo
-      summary: add a new todo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/addTodoRequest'
-      responses:
-        "200":
-          description: OK
-  /api/delete-todo:
-    post:
-      operationId: deleteTodo
-      summary: delete a todo
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/deleteTodoRequest'
-      responses:
-        "200":
-          description: OK
+                $ref: '#/components/schemas/getSuiBlockchainTransaction'
 components:
   schemas:
-    deleteTodoRequest:
+    getSuiBlockchainTransaction:
       type: object
       required:
-      - todo
+      - transaction
       properties:
-        todo:
+        transaction:
           type: string
-          description: The todo to delete from the list.
-          required: true
-    addTodoRequest:
-      type: object
-      required:
-      - todo
-      properties:
-        todo:
-          type: string
-          description: The todo to add to the list.
-          required: true
-    getTodosResponse:
-      type: object
-      properties:
-        todos:
-          type: array
           items:
             type: string
-          description: The list of todos.
+          description: The transaction hash.
+          required: true

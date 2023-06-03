@@ -326,29 +326,29 @@
   },
   {
     "id":11,
-    "name": "ToDo list",
+    "name": "SuiGPT",
     "url": "http://localhost:3000/.well-known/ai-plugin.json",
-    "desc": "A plugin that allows the user to create and manage a TODO list using ChatGPT.",
+    "desc": "Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions.",
     "examplePrompt": "",
     "icon": "https://blog.sui.io/content/images/2023/04/Sui_Droplet_Logo_Blue-3.png",
     "author": "irvin@opendive.io",
     "manifest": {
       "schema_version": "v1",
-      "name_for_human": "ToDo list",
-      "name_for_model": "todo",
-      "description_for_human": "A plugin that allows the user to create and manage a TODO list using ChatGPT.",
-      "description_for_model": "A plugin that allows the user to create and manage a TODO list using ChatGPT.",
+      "name_for_human": "SuiGPT (no auth)",
+      "name_for_model": "suigpt",
+      "description_for_human": "Plugin for allowing access to the Sui blockchain for you to explore and understand various transactions.",
+      "description_for_model": "Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions.",
       "auth": {
-          "type": "none"
+        "type": "none"
       },
       "api": {
-          "type": "openapi",
-          "url": "http://localhost:3000/openapi.yaml",
-          "is_user_authenticated": false
+        "type": "openapi",
+        "url": "http://localhost:3000/openapi.yaml",
+        "is_user_authenticated": false
       },
-      "logo_url": "http://localhost:3000/vercel.png",
-      "contact_email": "support@yourdomain.com",
-      "legal_info_url": "http://www.yourdomain.com/legal"
+      "logo_url": "http://localhost:3000/logo.png",
+      "contact_email": "support@example.com",
+      "legal_info_url": "https://example.com/legal"
     }
   }
   // { id:0, name: '', url: '', desc: '', examplePrompt: '', icon: '', author: '' },

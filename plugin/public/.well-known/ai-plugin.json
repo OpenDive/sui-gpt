@@ -1,18 +1,18 @@
 {
   "schema_version": "v1",
-  "name_for_human": "TODO Plugin (no auth)",
-  "name_for_model": "todo",
-  "description_for_human": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
-  "description_for_model": "Plugin for managing a TODO list. Users can add, remove, and list todos.",
+  "name_for_human": "SuiGPT (no auth)",
+  "name_for_model": "suigpt",
+  "description_for_human": "Plugin for allowing access to the Sui blockchain for you to explore and understand various transactions.",
+  "description_for_model": "Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions.",
   "auth": {
-      "type": "none"
+    "type": "none"
   },
   "api": {
-      "type": "openapi",
-      "url": "http://localhost:3000/openapi.yaml",
-      "is_user_authenticated": false
+    "type": "openapi",
+    "url": "http://localhost:3000/openapi.yaml",
+    "is_user_authenticated": false
   },
-  "logo_url": "http://localhost:3000/vercel.png",
-  "contact_email": "support@yourdomain.com",
-  "legal_info_url": "http://www.yourdomain.com/legal"
+  "logo_url": "http://localhost:3000/logo.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://example.com/legal"
 }

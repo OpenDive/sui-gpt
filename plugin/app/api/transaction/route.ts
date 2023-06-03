@@ -1,17 +1,17 @@
-import { NextResponse } from "next/server";
-import { Todos } from "../../../lib/TodosClass";
+import { NextResponse, NextRequest } from "next/server";
+import { Transaction } from "../../../lib/TransactionClass";
 
-export async function GET() {
-  console.log("GETTING TODOS: " + Todos.getTodos());
+export async function GET(req: NextRequest) {
+  const body = await req.json()
+  const tx = await Transaction.getTransaction(body)
   return NextResponse.json(
     {
-      todos: Todos.getTodos(),
+      transaction: tx,
     },
     {
       status: 200,
       headers: {
-        // "Access-Control-Allow-Origin": "https://chat.openai.com",
-        "Access-Control-Allow-Origin": "http://0.0.0.0:3010/chat",
+        "Access-Control-Allow-Origin": "http://localhost:3010",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers":
           "Content-Type, Authorization, openai-ephemeral-user-id, openai-conversation-id",
@@ -26,9 +26,7 @@ export async function OPTIONS() {
     {
       status: 200,
       headers: {
-        // "Access-Control-Allow-Origin": "https://chat.openai.com",
-        // "Access-Control-Allow-Origin": "http://0.0.0.0:3010/chat",
-        "Access-Control-Allow-Origin": "http://:3010/chat",
+        "Access-Control-Allow-Origin": "http://localhost:3010",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers":
           "Content-Type, Authorization, openai-ephemeral-user-id, openai-conversation-id",

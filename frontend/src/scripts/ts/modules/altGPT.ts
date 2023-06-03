@@ -211,6 +211,8 @@ export class AltGPT {
 		// step 1 - find intent: 
 		this.events.emit({ step: 'intent', status: 'start', availablePlugins: selectedPlugins?.map(x => x.name).join(', ') }, 'smart-completion');
 		const intents = await this.getIntents(messages, selectedPlugins)
+		console.log("MESSAGES: " + JSON.stringify(messages, null, 2))
+		console.log("SELECTED PLUGINS: " + JSON.stringify(selectedPlugins, null, 2))
 		libx.log.v('smartCompletion: intents: ', intents);
 		this.events.emit({ step: 'intent', status: 'success', result: intents }, 'smart-completion');
 
