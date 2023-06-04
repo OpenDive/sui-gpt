@@ -9,7 +9,7 @@ paths:
   /api/get-account-collections:
     get:
       summary: getAccountCollections
-      description: Accepts Sui publikey address. Returns the collections that belong to that address.
+      description: Accepts Sui publikey address. Returns the Sui NFT collections that belong to that address.
       operationId: account_collections
       responses:
         "200":
