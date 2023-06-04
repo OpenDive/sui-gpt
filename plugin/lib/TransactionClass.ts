@@ -7,7 +7,6 @@ type TransactionType = Transaction[]
 
 class TransactionClass {
   async getTransaction(digest: string): Promise<SuiTransactionBlockResponse> {
-    console.log("getTransaction digest: " + digest)
     const provider = new JsonRpcProvider();
     const tx = await provider.getTransactionBlock({
       digest: digest,

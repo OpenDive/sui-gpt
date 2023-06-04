@@ -2,8 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { Transaction } from "../../../lib/TransactionClass";
 
 export async function GET(req: NextRequest) {
-  const body = await req.json()
-  const tx = await Transaction.getTransaction(body)
+  const tx = await Transaction.getTransaction(req.url.split("=")[1])
   return NextResponse.json(
     {
       transaction: tx,

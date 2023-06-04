@@ -4,7 +4,7 @@ info:
   description: Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions using ChatGPT.
   version: 'v1'
 servers:
-  - url: http://0.0.0.0:3000
+  - url: http://localhost:3000
 paths:
   /api/transaction:
     get:
