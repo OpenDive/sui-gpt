@@ -180,7 +180,7 @@ export default {
 	},
 	created() {
 		helpers.updateMeta({...this.$app.layout.headers, ...{
-			appName: 'alt-gpt',
+			appName: 'SuiGPT',
 			viewName: 'Chat',
 			pageTitle: 'feedox/chatgpt-plugins-playground',
 			desc: 'ChatGPT Playground',
