@@ -14,6 +14,14 @@ SuiGPT is a ChatGPT plugin designed to help out exploring the Sui Blockchain.
 - [x] Retrieve transactions from the Sui Blockchain using a transaction digest
 - [x] Retrieve account balance from the Sui Blockchain
 - [x] Explain, debug, and create test cases for Sui Move code
+- [x] Get information about NFT tokens
+- [x] Customizable Queries
+- [x] Data Visualization
+- [x] Contextual Explanations
+- [x] Historical Data Access
+- [x] Continuous Learning
+- [x] Integration with External Tools
+- [x] Secure and Private
 
 # ToDo
 
@@ -55,3 +63,8 @@ $ yarn start
 
 - Make sure to have the Alt GPT window open in a browser at `http://localhost:3010/chat` and have the plugin selected
 - Type in `Please explain this transaction: {Insert transaction digest}`
+
+# Next Steps
+
+- Integrate the ability to send transactions right from ChatGPT
+- Implement transaction and move call executions
