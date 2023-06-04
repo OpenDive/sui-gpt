@@ -182,7 +182,7 @@ export default {
 		helpers.updateMeta({...this.$app.layout.headers, ...{
 			appName: 'SuiGPT',
 			viewName: 'Chat',
-			pageTitle: 'feedox/chatgpt-plugins-playground',
+			pageTitle: 'You personal assistant for understanding the Sui blockchain',
 			desc: 'ChatGPT Playground',
 			// image: '/resources/imgs/main/main-link-preview-innovation.png',
 		}});
