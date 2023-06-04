@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const tx = await Transaction.getTransaction(req.url.split("=")[1])
   return NextResponse.json(
     {
-      transaction: tx,
+      tx
     },
     {
       status: 200,

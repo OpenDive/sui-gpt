@@ -11,7 +11,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'http://0.0.0.0:3010/chat',
+            value: 'http://localhost:3010',
           },
         ],
       },

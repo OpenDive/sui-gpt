@@ -1,32 +1,21 @@
 openapi: 3.0.1
 info:
   title: SuiGPT
-  description: Plugin for allowing access to the Sui blockchain for the User to explore and understand various transactions using ChatGPT.
-  version: 'v1'
+  description: Get current and historical information from the Sui Blockchain network.
+  version: "v1"
 servers:
   - url: http://localhost:3000
 paths:
   /api/transaction:
     get:
       operationId: getTransaction
-      summary: Get a transaction from the Sui Blockchain
+      summary: Get transaction information from the Sui Blockchain network using a digest hash.
+      parameters:
+        - in: digest
+          name: digest
+          schema:
+            type: string
+          description: The transaction digest hash to search with. For example, ?transaction=xxx will always return the value "xxx" within the output itself.
       responses:
         "200":
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/getSuiBlockchainTransaction'
-components:
-  schemas:
-    getSuiBlockchainTransaction:
-      type: object
-      required:
-      - transaction
-      properties:
-        transaction:
-          type: string
-          items:
-            type: string
-          description: The transaction hash.
-          required: true
