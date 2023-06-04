@@ -25,11 +25,12 @@ class TodosClass {
     this.todos.splice(index, 1)
   }
 
- async getBalance():Promise<string> {
+ async getBalance(publicKey: string):Promise<string> {
   const provider = new JsonRpcProvider(mainnetConnection);
   // If coin type is not specified, it defaults to 0x2::sui::SUI
   const coinBalance = await provider.getBalance({
-    owner: '0x9ccae709d2271c28bbf695293243315ef7342e8e2cc927fa651ad3fbfc7bda9f',
+    // owner: '0x9ccae709d2271c28bbf695293243315ef7342e8e2cc927fa651ad3fbfc7bda9f',
+    owner: publicKey,
     // coinType:
     //   // '0x65b0553a591d7b13376e03a408e112c706dc0909a79080c810b93b06f922c458::usdc::USDC',
     //   '0x2::sui::SUI',

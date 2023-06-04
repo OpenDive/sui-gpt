@@ -9,7 +9,7 @@ paths:
   /api/get-balance:
     get:
       summary: getBalance
-      description: Returns the amount of coin on Sui
+      description: Accepts Sui publicKey address. Returns the amount of Sui coins the publicKey address holds.
       operationId: query_balance
       responses:
         "200":
@@ -100,7 +100,7 @@ components:
       properties:
         balance:
           type: string
-          description: The coin balance of TODOs.
+          description: The coin balance of the given account.
     getSuiBlockchainTransaction:
       type: object
       required:

@@ -1,11 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { Todos } from "../../../lib/TodosClass";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   console.log("GETTING COINS: " + Todos.getTodos());
+  const publicKey =  req.nextUrl.searchParams.get("address");
   return NextResponse.json(
     {
-      balance: await Todos.getBalance(),
+      balance: await Todos.getBalance(publicKey || ""),
     },
     {
       status: 200,
