@@ -1,9 +1,4 @@
-import { JsonRpcProvider, SuiTransactionBlockResponse } from '@mysten/sui.js';
-
-interface Transaction {
-  [key: string]: string
-}
-type TransactionType = Transaction[]
+import { JsonRpcProvider, SuiTransactionBlockResponse, PaginatedObjectsResponse } from '@mysten/sui.js';
 
 class TransactionClass {
   async getTransaction(digest: string): Promise<SuiTransactionBlockResponse> {
@@ -14,6 +9,13 @@ class TransactionClass {
     });
     console.log(tx)
     return tx
+  }
+
+  async getOwnedObjects(address: string): Promise<PaginatedObjectsResponse> {
+    const provider = new JsonRpcProvider()
+    const objects = await provider.getOwnedObjects({owner: address})
+    console.log(objects)
+    return objects
   }
 }
 
