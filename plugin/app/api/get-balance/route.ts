@@ -3,7 +3,8 @@ import { Todos } from "../../../lib/TodosClass";
 
 export async function GET(req: NextRequest) {
   console.log("GETTING COINS: " + Todos.getTodos());
-  const publicKey =  req.nextUrl.searchParams.get("address");
+  const publicKey =  req.nextUrl.searchParams.get("publicKey");
+  console.log(publicKey);
   return NextResponse.json(
     {
       balance: await Todos.getBalance(publicKey || ""),

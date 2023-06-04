@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   console.log("DIGEST: " + digest);
   return NextResponse.json(
     {
-      balance: await Todos.getTransaction("5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw"),
+      transaction: await Todos.getTransaction("5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw"),
     },
     {
       status: 200,
