@@ -7,15 +7,20 @@ class TransactionClass {
       digest: digest,
       options: { showInput: true }
     });
-    console.log(tx)
-    return tx
+    console.log(tx);
+    return tx;
   }
 
   async getOwnedObjects(address: string): Promise<PaginatedObjectsResponse> {
-    const provider = new JsonRpcProvider()
-    const objects = await provider.getOwnedObjects({owner: address})
-    console.log(objects)
-    return objects
+    const provider = new JsonRpcProvider();
+    const objects = await provider.getOwnedObjects({owner: address});
+    console.log(objects);
+    return objects;
+  }
+
+  async airdropTokens(address: string) {
+    const provider = new JsonRpcProvider();
+    await provider.requestSuiFromFaucet(address);
   }
 }
 

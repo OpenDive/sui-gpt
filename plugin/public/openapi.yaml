@@ -24,11 +24,24 @@ paths:
       operationId: getOwnedObjects
       summary: Get the information about the owner's owned objects using their wallet address as input.
       parameters:
-        - in: digest
-          name: digest
+        - in: address
+          name: address
           schema:
             type: string
           description: The account wallet address to search with. For example, ?ownedobjects=xxx will always return the value "xxx" within the output itself.
+      responses:
+        "200":
+          description: OK
+  /api/airdrop:
+    get:
+      operationId: airdropTokens
+      summary: Airdrop some Sui tokens to the provided wallet.
+      parameters:
+        - in: address
+          name: address
+          schema:
+            type: string
+          description: The account wallet address to search with. There will only always be an output of "success" with the bool value of true.
       responses:
         "200":
           description: OK
