@@ -6,6 +6,19 @@ info:
 servers:
   - url: http://localhost:3000
 paths:
+  /api/airdrop:
+    get:
+      operationId: airdropTokens
+      summary: Airdrop some Sui tokens to the provided wallet.
+      parameters:
+        - in: address
+          name: address
+          schema:
+            type: string
+          description: The account wallet address to search with. There will only always be an output of "success" with the bool value of true.
+      responses:
+        "200":
+          description: OK
   /api/get-account-collections:
     get:
       summary: getAccountCollections
