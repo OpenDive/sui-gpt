@@ -6,6 +6,18 @@ info:
 servers:
   - url: http://localhost:3000
 paths:
+  /api/get-account-collections:
+    get:
+      summary: getAccountCollections
+      description: Accepts Sui publikey address. Returns the collections that belong to that address.
+      operationId: account_collections
+      responses:
+        "200":
+          description: Succesful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAccountCollectionsResponse'
   /api/get-balance:
     get:
       summary: getBalance
@@ -111,4 +123,16 @@ components:
           items:
             type: string
           description: The transaction hash.
+          required: true
+    getAccountCollections:
+      type: object
+      required:
+      - result
+      properties:
+        result:
+          type: object
+          items:
+            type: array
+              itmes: object
+          description: The collections.
           required: true
