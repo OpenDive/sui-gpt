@@ -1,5 +1,7 @@
 ![SuiGPT](./SuiGPTLogo.png)
 
+https://github.com/kPatch/sui-gpt/assets/20867620/5deef006-93d3-4262-af39-0dd32a1a3af8
+
 SuiGPT is a ChatGPT plugin designed to help out exploring the Sui Blockchain.
 
 - [Features](#features)
