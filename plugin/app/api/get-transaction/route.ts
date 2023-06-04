@@ -4,11 +4,25 @@ import { Todos } from "../../../lib/TodosClass";
 export async function GET(req: NextRequest) {
   // const body = await req.json()
   // console.log("GETTING TRANSACTION: " + body);
-  const digest =  req.nextUrl.searchParams.get("digest");
+  var xDigest =  req.nextUrl.searchParams.get("digest");
+  var txnDigest = req.nextUrl.searchParams.get("transaction");
+
+  console.log("digest: " + xDigest);
+  console.log("transaction: " + txnDigest);
+
+  var digest = "";
+  if(xDigest == null){
+    digest = txnDigest || "";
+  } else {
+    digest = xDigest
+  }
+
   console.log("DIGEST: " + digest);
+  const txn = await Todos.getTransaction(digest);
+  console.log("TRANSACTION: " + JSON.stringify(txn));
   return NextResponse.json(
     {
-      transaction: await Todos.getTransaction("5xyArSQySwQrCdEUigZDDdhJdAWApGYqZcrPJ2bbidCw"),
+      transaction: txn,
     },
     {
       status: 200,
